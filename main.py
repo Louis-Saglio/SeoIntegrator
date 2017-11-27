@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 import data_IO
 import tags_processors
-import utils
+import core
 
 
 def format_text() -> List[Tuple[str, str]]:
@@ -23,7 +23,7 @@ def format_text() -> List[Tuple[str, str]]:
     }
     for row in data:
         info["text"] = row[1]
-        rep.append((row[0], utils.process(info)))
+        rep.append((row[0], core.process(info)))
     return rep
 
 
