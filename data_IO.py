@@ -11,7 +11,17 @@ def _read_csv() -> Tuple[str, ...]:
 
 
 def _clean_data(data: Tuple[str, ...]) -> Tuple[Tuple[str, str], ...]:
-    return tuple((row[0].split()[0], row[1].replace(')', '(')) for row in data if row not in (['', ''], ['']))
+    rep = []
+    for row in data:
+        if row not in (['', ''], ['']):
+            try:
+                # Décomenter la ligne suivante pour trouver plus facilement les erreurs de formatage dans le texte.
+                # print(row[0])
+                rep.append((row[0].split()[0], row[1].replace(')', '(')))
+            except IndexError:
+                print(row)
+                exit(1)
+    return tuple(rep)
 
 
 def read_input() -> Tuple[Tuple[str, str], ...]:
