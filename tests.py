@@ -1,7 +1,7 @@
 import unittest
 
 import tags_processors
-import utils
+import core
 
 
 class MyTestCase(unittest.TestCase):
@@ -14,7 +14,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_format_tags(self):
         self.assertEqual(
-            utils._format_tags("lorem (ipsum dolor sit( amet", '(', lambda x: f"#{x}@"),
+            core._format_tags("lorem (ipsum dolor sit( amet", '(', lambda x: f"#{x}@"),
             "lorem #ipsum dolor sit@ amet"
         )
 
@@ -33,7 +33,7 @@ class MyTestCase(unittest.TestCase):
             )
         }
         self.assertEqual(
-            utils.process(info),
+            core.process(info),
             "Lorem ipsum <strong>dolor sit</strong> amet, consectetur <strong>adipiscing <a "
             "href='https://jestocke.com'>elit, sed</a> do</strong>"
         )

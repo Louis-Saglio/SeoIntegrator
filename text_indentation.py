@@ -3,7 +3,7 @@ from typing import Tuple, Iterable
 
 def indent_text(text: str, line_size: int=100, indent_level: int=2, indent_size: int=4) -> str:
     rep = str()
-    line_size = line_size - 3 - indent_size * indent_level
+    line_size = line_size - 2 - indent_size * indent_level
     for i in range(0, len(text), line_size):
         rep += f'{" " * indent_level * indent_size}"{text[i:line_size+i]}"\n'
     return rep
