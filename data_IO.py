@@ -17,7 +17,7 @@ def _clean_data(data: Tuple[str, ...]) -> Tuple[Tuple[str, str], ...]:
             try:
                 # Décomenter la ligne suivante pour trouver plus facilement les erreurs de formatage dans le texte.
                 # print(row[0])
-                rep.append((row[0].split()[0], row[1].replace(')', '(')))
+                rep.append((row[0].split('(')[0][:-1].lower(), row[1].replace(')', '(')))
             except IndexError:
                 print(row)
                 exit(1)
